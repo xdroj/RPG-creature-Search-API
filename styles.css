@@ -93,6 +93,7 @@ table {
   border-collapse: collapse;
   background-color: #7f21ab;
   color: #f5f6f7;
+  text-align: center;
 }
 
 th, td {
