@@ -3,139 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>RPG Creature API</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>RPG creature search app</title>
 </head>
 <body>
     <main>
-        <h1>RPG Creature API</h1>
-        <div class="usage">
-            <h2>Usage</h2>
-                <p>Use the endpoint <code>https://rpg-creature-api.freecodecamp.rocks/api/creatures</code> to see a list of all valid creature names and ID numbers.</p>
-                <p>Use the endpoint <code>https://rpg-creature-api.freecodecamp.rocks/api/creature/{name-or-id}</code> to get data for a creature, where {name-or-id} is the creature's name or ID number.</p>
-
-            <h2>Example Request</h2>
-                <p>Click any of the example requests below to see its response.</p>
-
-                <h3>All valid Creatures:</h3>
-                    <ul><li><a href="https://rpg-creature-api.freecodecamp.rocks/api/creatures" target="_blank"><code>https://rpg-creature-api.freecodecamp.rocks/api/creatures</code></a></li></ul>
-                <h3>Pyrolynx:</h3>
-                    <ul>
-                        <li><a href="https://rpg-creature-api.freecodecamp.rocks/api/creature/pyrolynx" target="_blank"><code>https://rpg-creature-api.freecodecamp.rocks/api/creature/pyrolynx</code></a></li>
-                        <li><a href="https://rpg-creature-api.freecodecamp.rocks/api/creature/1" target="_blank"><code>https://rpg-creature-api.freecodecamp.rocks/api/creature/1</code></a></li>
-                    </ul>
-                <h3>Available Creatures:</h3>
-                    <div class="tables-wrap">
-                        <table tabindex="0">
-                            <caption class="sr-only">List of available creatures 1 through 10</caption>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Pyrolynx</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Aquoroc</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Voltadon</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Floraspine</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Cryostag</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Terradon</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>Emberapod</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>Lunaclaw</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>Quillquake</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Mystifin</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <table tabindex="0">
-                            <caption class="sr-only">List of available creatures 11 through 20</caption>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            
-                            <tbody>
-                                <tr>
-                                    <td>11</td>
-                                    <td>Dracilume</td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>Thornaconda</td>
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>Frostbyte</td>
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                    <td>Graviboa</td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>Zephyreon</td>
-                                </tr>
-                                <tr>
-                                    <td>16</td>
-                                    <td>Blazebore</td>
-                                </tr>
-                                <tr>
-                                    <td>17</td>
-                                    <td>Brontogale</td>
-                                </tr>
-                                <tr>
-                                    <td>18</td>
-                                    <td>Shadeelisk</td>
-                                </tr>
-                                <tr>
-                                    <td>19</td>
-                                    <td>Titanule</td>
-                                </tr>
-                                <tr>
-                                    <td>20</td>
-                                    <td>Faegis</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+        <img class="freecodecamp-logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp Logo">
+        <h1>RPG Creature Search App</h1>
+        <div class="container">
+            <form role="search" id="search-form">
+                <label for="search-input">Search for Creature Name or ID:</label>
+                <input type="text" name="creature" id="search-input" required="">
+                <button id="search-button">Search</button>
+            </form>
+        
+            <div class="output">
+              <div class="top-container">
+                <div class="name-and-id">
+                        <span id="creature-name"></span>
+                        <span id="creature-id"></span>
+                    <div class="size">
+                        <span id="weight"></span>
+                        <span id="height"></span>
                     </div>
+                </div>
+            
+                <div id="types"></div>
+                    <div>
+                        <div id="special-name"></div>
+                        <div id="special-description"></div>
+                    </div>
+                </div>
+          
+                <div class="bottom-container">
+                    <table>
+                        <tbody><tr>
+                            <th>Base</th>
+                            <th>Stats</th>
+                        </tr>
+                        <tr>
+                            <td>HP:</td>
+                            <td id="hp"></td>
+                        </tr>
+                        <tr>
+                            <td>Attack:</td>
+                            <td id="attack"></td>
+                        </tr>
+                        <tr>
+                            <td>Defense:</td>
+                            <td id="defense"></td>
+                        </tr>
+                        <tr>
+                            <td>Sp. Attack:</td>
+                            <td id="special-attack"></td>
+                        </tr>
+                        <tr>
+                            <td>Sp. Defense:</td>
+                            <td id="special-defense"></td>
+                        </tr>
+                        <tr>
+                            <td>Speed:</td>
+                            <td id="speed" class="speed"></td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
         </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
